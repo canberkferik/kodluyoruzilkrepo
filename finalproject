@@ -1,0 +1,33 @@
+def flatten_list(input_list):
+    """
+    Flattens a nested list into a single list.
+    Args:
+        input_list (list): The nested list to flatten.
+    Returns:
+        list: A flattened list.
+    """
+    flattened = []
+    for item in input_list:
+        if isinstance(item, list):
+            flattened.extend(flatten_list(item))
+        else:
+            flattened.append(item)
+    return flattened
+
+--------------------------------------------------------------------------------------------
+
+def reverse_nested_list(input_list):
+    """
+    Reverses the elements of a nested list, including reversing elements of sub-lists.
+    Args:
+        input_list (list): The nested list to reverse.
+    Returns:
+        list: A nested list with all elements reversed.
+    """
+    reversed_list = []
+    for item in reversed(input_list):
+        if isinstance(item, list):
+            reversed_list.append(reverse_nested_list(item))
+        else:
+            reversed_list.append(item)
+    return reversed_list
